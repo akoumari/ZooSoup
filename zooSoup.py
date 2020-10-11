@@ -50,11 +50,11 @@ print("\t\t\t\t\t***  Welcome to Zoo Soup V1.0  ***")
 print("\t\t\t\t\t**********************************")
 print("\tThis program will scan the Toronto Zoo Website\n\tto see if the Scenic Safari tickets are still sold out!\n\n\n")
 # set the default 'from' address,
-fromaddr = 'default@default.com'
+fromaddr = 'ibmwax@gmail.com'
 # set the default 'to' addresses,
-toaddrs  = 'default@default.com'
+toaddrs  = 'alex.koumarianos@gmail.com'
 # set the default password 
-passfile = "C:\\Users\\defaultUser\\Desktop\\superdupersecretfile.txt"
+passfile = "C:\\Users\\alexk\\Desktop\\superdupersecretfile.txt"
 with open(passfile, 'r', encoding='utf-8') as pwf:
         password = str(pwf.readline())
 # Checks counter 
@@ -98,7 +98,7 @@ while True:
 
 while True:
     # set the url to be scraped
-    url = "https://tickets.torontozoo.com/events/Scenic-Safari"
+    url = "https://www.canadapost.ca/trackweb/en#/details/7286247000163091"
     # set the headers like we are a browser,
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
     # download the page
@@ -106,13 +106,14 @@ while True:
     # parse the downloaded page and grab all text, then,
     soup = BeautifulSoup(response.text, "lxml")
     # set the various search keys
-    key3 = "day active bg-selectable"
-    key2 = "<span class=\"availablility\">Available"
+    key3 = "Item out for delivery"
+    key2 = "Item processed"
     key1 = "<p style=\"color:red; text-align:center; font-size:125%; font-weight:bold;\">\r\n    Scenic Safari tickets are now SOLD OUT\r\n<!--  \r\n  <span style=\"font-size:75%;\">\r\n  <br />\(Tickets for June 15, 19, 20 & 21 are now Sold Out\)\r\n  </span>\r\n-->"
     
     # set the search parameters for specific count values/ranges
-    if extract(key1, str(soup)) != 1 or extract(key2, str(soup)) > 1 or extract(key3, str(soup)) >= 1 :
-        msg = 'Subject: The Zoo is available'
+    if extract(key3, str(soup)) >= 1 or extract(key2, str(soup)) >= 1:
+        #  or extract(key3, str(soup)) >= 1 :
+        msg = 'Subject: The eagle has taken off'
         # setup the email server,
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
