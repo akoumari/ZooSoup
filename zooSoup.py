@@ -20,7 +20,7 @@ import re
 import getpass
 
 def check(email):  
-    regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+    regex ='^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
     # pass the regular expression 
     # and the string in search() method 
     if(re.search(regex,email)):  
