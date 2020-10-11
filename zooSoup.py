@@ -50,11 +50,11 @@ print("\t\t\t\t\t***  Welcome to Zoo Soup V1.0  ***")
 print("\t\t\t\t\t**********************************")
 print("\tThis program will scan the Toronto Zoo Website\n\tto see if the Scenic Safari tickets are still sold out!\n\n\n")
 # set the default 'from' address,
-fromaddr = 'ibmwax@gmail.com'
+fromaddr = 'change this'
 # set the default 'to' addresses,
-toaddrs  = 'alex.koumarianos@gmail.com'
+toaddrs  = 'change this'
 # set the default password 
-passfile = "C:\\Users\\alexk\\Desktop\\superdupersecretfile.txt"
+passfile = "C:\\change this"
 with open(passfile, 'r', encoding='utf-8') as pwf:
         password = str(pwf.readline())
 # Checks counter 
